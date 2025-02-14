@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Briefumschlag - Buenas Noches amor</title>
+  <style>
+    body {
+      background-color: #f0f0f0;
+      font-family: 'Georgia', serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    /* Container für den Umschlag */
+    .container {
+      position: relative;
+      width: 400px;
+      height: 300px;
+      perspective: 1200px;
+    }
+    /* Der Umschlag */
+    .envelope {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      background: linear-gradient(145deg, #ffffff, #e6e6e6);
+      border: 1px solid #ccc;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transform-style: preserve-3d;
+      transition: transform 0.8s;
+    }
+    /* Umschlag im offenen Zustand */
+    .envelope.open .flap {
+      transform: rotateX(-180deg);
+    }
+    .envelope.open .letter {
+      opacity: 1;
+      transform: translateY(-10px);
+    }
+    /* Die Klappe des Umschlags */
+    .flap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      background: linear-gradient(145deg, #dcdcdc, #f0f0f0);
+      transform-origin: top;
+      transition: transform 0.8s;
+      border-bottom: 1px solid #ccc;
+    }
+    /* Der Brief im Inneren (wie ein Blatt Papier) */
+    .letter {
+      position: absolute;
+      top: 55%;
+      left: 5%;
+      width: 90%;
+      height: 38%;
+      background: #fff;
+      border: 1px solid #aaa;
+      padding: 15px;
+      box-sizing: border-box;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      opacity: 0;
+      transition: opacity 0.8s, transform 0.8s;
+      overflow-y: auto;
+    }
+    /* Gestaltung des Briefinhalts */
+    .letter p {
+      margin: 0;
+      line-height: 1.5;
+      white-space: pre-wrap;
+    }
+    /* Die Adresse auf dem Umschlag */
+    .address {
+      position: absolute;
+      bottom: 10px;
+      right: 15px;
+      font-weight: bold;
+      font-size: 18px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" onclick="toggleEnvelope()">
+    <div class="envelope" id="envelope">
+      <div class="flap"></div>
+      <div class="letter">
+        <p>
+Buenas Noches amor
+
+Hoy para ti es un dia especial un dia en el que se celebra el amor. No, no pienso igual pero teniendo te a ti se me hace especial. Te quería agradecer por el esfuerzo que estas dando que no es nada que se puede cojer por selbstverständlich. Nunca voy a poder decirte suficiente lo que siento por ti. Me vivificas la vida sea Jodiendo (chasch au lah🙄 Spasss Rubin), dandome cariño, haciendo chistes, siendo my little nerd (well trying to be one) or my princes👑. Bueno como es el dia de el amor nos deseo un futuro maravilloso y que seguimos creciendo en nuestro camino.
+
+Te amo ♾️
+
+Tu Amor❣️
+        </p>
+      </div>
+      <div class="address">Pamela Ann Rubin Sanchez</div>
+    </div>
+  </div>
+
+  <script>
+    function toggleEnvelope() {
+      document.getElementById('envelope').classList.toggle('open');
+    }
+  </script>
+</body>
+</html>
